@@ -1,6 +1,6 @@
-<h1>To Do</h1>
+<h1>CompareDoc</h1>
 
-<p>Here are all your tasks:</p>
+<p>Add your Doctor Experience Here</p>
 
 <ul>
   <% @tasks.not_done.each do |task| %>
@@ -8,15 +8,25 @@
   <% end %>
 </ul>
 
-<p>Create a new task:</p>
-
 <form action='/tasks' method='post'>
-  <label for='description'>Description</label>
-  <input id='description' name='description' type='text'>
+  <label for='doctors'>Health Care Provider</label>
+  <input id='doctors' name='doctors' class="form-control" type='text'><br>
+  <label for='symptom'>Symptom</label>
+  <input id='symptom' name='symptom' class="form-control" type='text'><br>
+  <label for='service'>Service</label>
+  <input id='service' name='service' class="form-control" type='text'><br>
+  <label for='price_oop'>Price Out of Pocket</label>
+  <input id='price_oop' name='price_oop' class="form-control" type='text'><br>
+  <label for='percent'>Percent Covered by insurance</label>
+  <input id='percent' name='percent' class="form-control" type='text'><br>
+  <label for='experience'>Experience Score</label>
+  <input id='experience' name='experience' class="form-control" type='text'><br>
+  <label for='comment'>Comments</label>
+  <input id='comment' name='comment' class="form-control" type='text'><br>
 
-  <button type="submit">Add task</button>
+  <button type="submit" class = 'btn btn-large btn-success'>Add Review</button>
 </form>
 
 <% @tasks.each() do |task| %>
-  <li> <%= task.description %> <a href = "/tasks/<%= task.id() %>/edit"> Update this task's description</a></li>
+  <li> <%= task.description %> <%= task.doctor %> <%= task.action %> <br> <%= task.price_oop %> <%= task. experience %></li>
   <% end %>

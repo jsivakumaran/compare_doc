@@ -12,10 +12,18 @@ get('/') do
 end
 
 post('/tasks') do
-  description = params.fetch('description')
-  @task = Task.new({:description => description, :done => false})
+  doctors = params.fetch('doctors')
+  symptom = params.fetch('symptom')
+  price_oop = params.fetch('price_oop').to_i
+  percent = params.fetch('percent').to_i
+  experience = params.fetch('experience').to_i
+  service = params.fetch('service')
+  comment = params.fetch('comment')
+  @task = Task.new({:doctor => doctors, :symptom => symptom,
+    :service => service, :price_oop => price_oop, :percentage_covered => percent,
+    :experience => experience, :comment => comment, :done => false})
   @task.save()
-  erb(:success)
+  redirect back
 end
 
 get('/tasks/:id/edit') do

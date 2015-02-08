@@ -2,8 +2,13 @@ development:
   adapter: postgresql
   database: to_do_development
   template: template0
+  username: postgres
+  password: startup
+
 
 test:
   adapter: postgresql
   database: to_do_test
-  template: template0 
+  template: template0
+  username: postgres
+  password: startup
